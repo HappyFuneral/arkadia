@@ -1,8 +1,4 @@
-export default function ProductSpecs({
-  specs,
-}: {
-  specs: Record<string, string>;
-}) {
+export default function ProductSpecs({ specs }: { specs: any }) {
   return (
     <section>
       <h2 className="text-2xl font-bold mb-6">Műszaki adatok</h2>
