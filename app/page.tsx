@@ -1,17 +1,15 @@
-import Hero from "../components/Hero";
-import FeaturedGuitars from "../components/FeaturedGuitars";
-import ServiceHighlight from "../components/ServiceHighlight";
-import TrustSection from "../components/TrustSection";
-import CTASection from "../components/CTASection";
+import Hero from "@/components/home/Hero";
+import CategoryGrid from "@/components/home/CategoryGrid";
+import ServicePromo from "@/components/home/ServicePromo";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="bg-black text-white">
+    <main className="space-y-24">
       <Hero />
-      <FeaturedGuitars />
-      <ServiceHighlight />
-      <TrustSection />
-      <CTASection />
+      <CategoryGrid />
+      <FeaturedProducts />
+      <ServicePromo />
     </main>
   );
 }
