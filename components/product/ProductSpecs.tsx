@@ -1,4 +1,8 @@
-export default function ProductSpecs({ specs }: { specs: any }) {
+export default function ProductSpecs({
+  specs,
+}: {
+  specs: Record<string, any>;
+}) {
   return (
     <section>
       <h2 className="text-2xl font-bold mb-6">Műszaki adatok</h2>
@@ -10,7 +14,7 @@ export default function ProductSpecs({ specs }: { specs: any }) {
             className="flex justify-between bg-zinc-900 p-4 rounded"
           >
             <span className="text-zinc-400">{key}</span>
-            <span className="font-medium">{value}</span>
+            <span className="font-medium">{String(value)}</span>
           </div>
         ))}
       </div>
