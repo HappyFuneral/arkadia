@@ -5,8 +5,7 @@ import { Product } from "@/data/products";
 import Breadcrumb from "@/components/Breadcrumb";
 import CategoryHeader from "@/components/CategoryHeader";
 import ProductCard from "@/components/ProductCard";
-import { categories } from "@/data/categories";
-import CategoryBrowser from "./CategoryBrowser";
+import { categories, Category } from "@/data/categories";
 
 type Props = {
   categoryCode: string;
@@ -64,7 +63,11 @@ export default function CategoryClient({ categoryCode, products }: Props) {
   const prettyCategoryName = categories
     .find((c) => c.categoryCode === categoryCode)
     ?.name.toString();
-  function getBreadcrumb(code: string, cats = categories, trail: any[] = []) {
+  function getBreadcrumb(
+    code: string,
+    cats = categories,
+    trail: Category[] = []
+  ): Category[] {
     for (const cat of cats) {
       const newTrail = [...trail, cat];
       if (cat.categoryCode === code) return newTrail;
@@ -74,7 +77,7 @@ export default function CategoryClient({ categoryCode, products }: Props) {
         if (found) return found;
       }
     }
-    return null;
+    return [];
   }
   const breadcrumb = getBreadcrumb(categoryCode) ?? [];
   return (
@@ -94,7 +97,7 @@ export default function CategoryClient({ categoryCode, products }: Props) {
           />
         </div>
         <CategoryHeader
-          title={prettyCategoryName}
+          title={prettyCategoryName + ""}
           description="Új és használt hangszerek – szűrj márka, ár és típus szerint."
         />
 
