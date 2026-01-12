@@ -10,7 +10,7 @@ export type Product = {
   categoryCode: string;
   subCategoryCode?: string;
   images: string[];
-  specs: Record<string, string>;
+  specs: any;
 };
 
 export const products = [
