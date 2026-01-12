@@ -239,9 +239,9 @@ function FilterPanel({
                 type="checkbox"
                 checked={selectedBrands.includes(brand)}
                 onChange={() =>
-                  setSelectedBrands((prev) =>
+                  setSelectedBrands((prev: string[]) =>
                     prev.includes(brand)
-                      ? prev.filter((b) => b !== brand)
+                      ? prev.filter((b: string) => b !== brand)
                       : [...prev, brand]
                   )
                 }
@@ -263,7 +263,7 @@ function FilterPanel({
                   type="checkbox"
                   checked={selectedSubCategories.includes(sub)}
                   onChange={() =>
-                    setSelectedSubCategories((prev) =>
+                    setSelectedSubCategories((prev: string[]) =>
                       prev.includes(sub)
                         ? prev.filter((s) => s !== sub)
                         : [...prev, sub]
