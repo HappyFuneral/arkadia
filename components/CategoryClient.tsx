@@ -200,15 +200,15 @@ type FilterProps = {
   brands: string[];
   subCategories: string[];
   selectedBrands: string[];
-  setSelectedBrands: (b: string[]) => void;
+  setSelectedBrands: React.Dispatch<React.SetStateAction<string[]>>;
   selectedSubCategories: string[];
-  setSelectedSubCategories: (s: string[]) => void;
+  setSelectedSubCategories: React.Dispatch<React.SetStateAction<string[]>>;
   onlyUsed: boolean;
-  setOnlyUsed: (b: boolean) => void;
+  setOnlyUsed: React.Dispatch<React.SetStateAction<boolean>>;
   minPrice: number | "";
-  setMinPrice: (n: number | "") => void;
+  setMinPrice: React.Dispatch<React.SetStateAction<number | "">>;
   maxPrice: number | "";
-  setMaxPrice: (n: number | "") => void;
+  setMaxPrice: React.Dispatch<React.SetStateAction<number | "">>;
   reset: () => void;
 };
 
@@ -239,9 +239,9 @@ function FilterPanel({
                 type="checkbox"
                 checked={selectedBrands.includes(brand)}
                 onChange={() =>
-                  setSelectedBrands((prev: string[]) =>
+                  setSelectedBrands((prev) =>
                     prev.includes(brand)
-                      ? prev.filter((b: string) => b !== brand)
+                      ? prev.filter((b) => b !== brand)
                       : [...prev, brand]
                   )
                 }
@@ -263,7 +263,7 @@ function FilterPanel({
                   type="checkbox"
                   checked={selectedSubCategories.includes(sub)}
                   onChange={() =>
-                    setSelectedSubCategories((prev: string[]) =>
+                    setSelectedSubCategories((prev) =>
                       prev.includes(sub)
                         ? prev.filter((s) => s !== sub)
                         : [...prev, sub]
